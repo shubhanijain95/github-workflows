@@ -1,0 +1,17 @@
+name: test-runner-env
+run-name: ${{ github.actor }} is testing the runner environment
+on: [workflow_dispatch]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+            echo "Checking the runner environment"
+            env
+            ps aux
+            docker ps
+            docker pull nginx
+            docker images nginx
+            docker run -d nginx
+            docker stop $(docker ps -q) && docker rm $(docker ps -a -q)
+            docker rmi $(docker images -q)
