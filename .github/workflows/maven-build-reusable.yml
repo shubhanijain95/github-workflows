@@ -1,6 +1,6 @@
 # .github/workflows/maven-build.yml
 
-name: Maven Build
+name: Maven Build - Reusable
 
 on:
   workflow_call:
